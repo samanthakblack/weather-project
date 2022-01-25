@@ -1,0 +1,29 @@
+body {
+  margin: 40px;
+  border: solid;
+  border-color: #0b5ed7;
+  padding: 30px;
+}
+
+div.row {
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+div.city {
+  text-align: center;
+  font-size: 20px;
+}
+
+.temperature {
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.units {
+  position: relative;
+  top: -28px;
+  font-size: 25px;
+}
