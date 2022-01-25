@@ -6,6 +6,10 @@ body {
   padding: 30px;
 }
 
+p {
+  text-align: center;
+}
+
 div.row {
   text-align: center;
   margin: 0 auto;
