@@ -2,6 +2,7 @@ body {
   margin: 40px;
   border: solid;
   border-color: #0b5ed7;
+  border-radius: 30px;
   padding: 30px;
 }
 
