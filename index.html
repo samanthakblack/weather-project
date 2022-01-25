@@ -18,16 +18,26 @@
     <div class="container">
       <div class="city">
         <form>
-          <input
-            type="search"
-            id="city-input"
-            placeholder="Search city..."
-            autocomplete="off"
-          />
-          <button type="submit" class="btn btn-primary search">Search</button>
-          <button type="current" class="btn btn-info location">
-            Current Location
-          </button>
+          <div class="row">
+            <div class="col-6">
+              <input
+                type="search"
+                id="city-input"
+                placeholder="Search city..."
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-3">
+              <button type="submit" class="btn btn-primary search w-100">
+                Search
+              </button>
+            </div>
+            <div class="col-3">
+              <button type="current" class="btn btn-info location w-100">
+                Current Location
+              </button>
+            </div>
+          </div>
         </form>
       </div>
       <div class="row">

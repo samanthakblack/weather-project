@@ -1,5 +1,5 @@
 body {
-  margin: 40px 100px;
+  margin: 40px 200px;
   border: solid;
   border-color: #0b5ed7;
   border-radius: 30px;
@@ -8,6 +8,10 @@ body {
 
 p {
   text-align: center;
+}
+
+a {
+  text-decoration: none;
 }
 
 div.row {
