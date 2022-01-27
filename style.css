@@ -42,3 +42,9 @@ div.city {
   border-radius: 5px;
   border-color: #31d2f2;
 }
+
+#current-city {
+  color: #0b5ed7;
+  font-weight: bold;
+  font-size: 30px;
+}
