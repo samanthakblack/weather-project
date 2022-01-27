@@ -36,3 +36,9 @@ div.city {
   top: -28px;
   font-size: 25px;
 }
+
+#city-input {
+  border: solid;
+  border-radius: 5px;
+  border-color: #31d2f2;
+}
