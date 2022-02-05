@@ -42,3 +42,7 @@ div.city {
   font-weight: bold;
   font-size: 30px;
 }
+
+#description {
+  text-transform: capitalize;
+}
