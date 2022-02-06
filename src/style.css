@@ -43,6 +43,15 @@ div.city {
   font-size: 15px;
 }
 
+.active {
+  color: black;
+  cursor: default;
+}
+
+.active:hover {
+  color: black;
+}
+
 #current-city {
   color: #0b5ed7;
   font-weight: bold;
