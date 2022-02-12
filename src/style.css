@@ -66,3 +66,7 @@ div.city {
   position: relative;
   top: -20px;
 }
+
+#forecast {
+  color: #0245a8;
+}
