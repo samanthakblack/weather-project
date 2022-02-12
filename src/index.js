@@ -46,9 +46,6 @@ function showWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#max-temp").innerHTML = Math.round(
-    response.data.main.temp_max
-  );
   document
     .querySelector("#icon")
     .setAttribute(
@@ -98,33 +95,6 @@ function searchLocation(event) {
 let currentLocationButton = document.querySelector(".location");
 currentLocationButton.addEventListener("click", searchLocation);
 
-// temperature conversion
-
-function showCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector(".temperature");
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let celsiusTemperature = ((farhenheitTemperature - 32) * 5) / 9;
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-function showFahrenheitTemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector(".temperature");
-  temperatureElement.innerHTML = Math.round(farhenheitTemperature);
-}
-
-let farhenheitTemperature = null;
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsiusTemperature);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
-
 // daily forecast
 
 function formatDay(timestamp) {
@@ -146,11 +116,16 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `<div class="col-2">
-          <h3>${formatDay(forecastDay.dt)}</h3>
+          <h5>${formatDay(forecastDay.dt)}</h5>
           <img src="http://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon
           }@2x.png" alt="" width="50"/>
-          <h3>${Math.round(forecastDay.temp.max)}°</h3>
+          <div class="weather-forecast-temp"><span class="max-temp">${Math.round(
+            forecastDay.temp.max
+          )}°</span>
+          <span class="min-temp">${Math.round(
+            forecastDay.temp.min
+          )}°</span></div>
         </div>`;
     }
   });

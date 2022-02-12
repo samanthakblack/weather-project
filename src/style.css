@@ -39,17 +39,12 @@ div.city {
 
 .units {
   position: relative;
-  top: -25px;
-  font-size: 15px;
+  top: -22px;
+  font-size: 18px;
 }
 
-.active {
-  color: black;
-  cursor: default;
-}
-
-.active:hover {
-  color: black;
+.min-temp {
+  opacity: 0.5;
 }
 
 #current-city {
