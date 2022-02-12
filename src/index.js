@@ -125,26 +125,38 @@ celsiusLink.addEventListener("click", showCelsiusTemperature);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
-// multiplying forecast days
+// daily forecast
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
 
 function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
+
   let forecastHTML = `<div class="row">`;
-  let weekDays = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
-  weekDays.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-          <h3>${day}</h3>
-          <img src="images/rainy.png" />
-          <h3>75°F</h3>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+          <h3>${formatDay(forecastDay.dt)}</h3>
+          <img src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" alt="" width="50"/>
+          <h3>${Math.round(forecastDay.temp.max)}°</h3>
         </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-// daily forecast
 
 function getForecast(coordinates) {
   let apiKey = "a828ff66f47952eb9b27501e65625a90";
