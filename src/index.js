@@ -59,6 +59,8 @@ function showWeather(response) {
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
   farhenheitTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -125,9 +127,8 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 // multiplying forecast days
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-
   let forecastHTML = `<div class="row">`;
   let weekDays = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
   weekDays.forEach(function (day) {
@@ -143,4 +144,10 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
-displayForecast();
+// daily forecast
+
+function getForecast(coordinates) {
+  let apiKey = "a828ff66f47952eb9b27501e65625a90";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+}
